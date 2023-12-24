@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sharing_image/Authentication/OTPScreen.dart';
 
@@ -62,9 +63,29 @@ class _phoneAuthenticationState extends State<phoneAuthentication> {
               ),
               const SizedBox(height: 10,),
               GestureDetector(
-                onTap: () {
+                onTap: () async{
                   FocusScope.of(context).unfocus();
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const OTPScreen()));
+                  await FirebaseAuth.instance.verifyPhoneNumber(
+                  phoneNumber: '+92 ${_phoneNumber.text}',
+                  verificationCompleted: (PhoneAuthCredential credential) {
+                    print("Verification Completed");
+                    print(credential.smsCode);
+                  },
+                  verificationFailed: (FirebaseAuthException e) {
+                    print("Verification Failed");
+                    print(e.message);
+                  },
+                  codeSent: (String verificationId, int? resendToken) {
+                   Future.delayed(Duration(milliseconds: 0), () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OTPScreen(verificationId: verificationId)),
+                    );
+                  });
+                  },
+                  codeAutoRetrievalTimeout: (String verificationId) {},
+                );
+                 
                 },
                 child: Container(
                   height: 50, width: 330,

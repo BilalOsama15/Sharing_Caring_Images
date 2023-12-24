@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "383932111410",
-    "project_id": "sharingimage-43ef1",
-    "storage_bucket": "sharingimage-43ef1.appspot.com"
+    "project_number": "36797189586",
+    "project_id": "sharingcaringimages",
+    "storage_bucket": "sharingcaringimages.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:383932111410:android:94b94392c40aae0065ba2b",
+        "mobilesdk_app_id": "1:36797189586:android:8b5f95203d2213c1464c0b",
         "android_client_info": {
           "package_name": "com.example.sharing_image"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB8OMwGr__6qgdwZFXRB9sp1AtBMZPYK24"
+          "current_key": "AIzaSyCUbN90YUx7IWuRoMvlVV0rngDBYdXB7PE"
         }
       ],
       "services": {
